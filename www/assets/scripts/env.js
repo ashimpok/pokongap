@@ -35,7 +35,7 @@ var Environment = {
         $.support.cors = true;
         $.mobile.allowCrossDomainPages = true;
         
-        //If there are date-birth fields attach datetimepicker
+        //If there are data-birth fields attach datetimepicker
         $('.date-birth').datepicker(
             {
                 changeYear: true,
