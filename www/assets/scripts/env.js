@@ -43,5 +43,18 @@ var Environment = {
                 yearRange: "c-60:c-14"                
             }
         );
+    },
+    
+    ShowError: function(title, message) {
+      alert(title + '\n' + message);
+    },
+    
+    ShowMessage: function(title, message) {
+      alert(title + '\n' + message);
+    },
+        
+    HasOfflineContent: function(){
+      alert('test');
+      return true;
     }
 }

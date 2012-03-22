@@ -39,13 +39,12 @@
         //});
 
         function onLoginSuccess(data, Status) {
-            ApplicationShowMessage('Logged on', 'Thank you');
+            Environment.ShowMessage('Logged on', 'Thank you');
             //data = $.trim(data);            
         }
 
-        function onLoginError(data, Status, err) {
-            ApplicationShowError(err);
-            ApplicationShowError('Login failed', 'Please try again.');
+        function onLoginError(data, Status, err) {            
+            Environment.ShowError('Login failed', 'Please try again.');
         }
     </script>
 </head>
