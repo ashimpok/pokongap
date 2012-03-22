@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="assets/styles/jquery.mobile/jquery.mobile.structure.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/jquery.mobile/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
-    
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
     <link href="assets/styles/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
-
     <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
     
     <script src="assets/scripts/jquery.min.js" type="text/javascript"></script>
@@ -18,39 +16,35 @@
     <script src="assets/scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="assets/scripts/application.js" type="text/javascript"></script>
     <script src="assets/scripts/env.js" type="text/javascript"></script>
-    
+        
     <script type="text/javascript">
-        $(document).bind(Environment.getInitMethod(), function () {
-            Environment.pageSetup();
-
+        $(document).bind(Environment.InitName, function () {
+            Environment.PageSetup();
+            
             $("#btnLogin").click(function () {
-
-                var formData = $("#frmLogin").serialize();
+                                            
+                var loginRequest = new MobileLoginRequest();
+                loginRequest.UserName = $("#email").val();
+                loginRequest.Password = $("#password").val();
                 
-                $.ajax({
-                    type: "POST",
-                    url: "callajax.php",
-                    cache: false,
-                    data: formData,
-                    success: onSuccess,
-                    error: onError
-                });
-
+                Environment.PostRequest(loginRequest, onLoginSuccess, onLoginError);
                 return false;
             });
         });
 
-        $('#frmLogin').validate({
-            submitHandler: function (form) {
-                alert("Call login action");
-            }
-        });
+        //$('#frmLogin').validate({
+        //    submitHandler: function (form) {
+        //        alert("Call login action");
+        //    }
+        //});
 
-        function onSuccess(data, status) {
-            data = $.trim(data);            
+        function onLoginSuccess(data, Status) {
+            ApplicationShowMessage('Logged on', 'Thank you');
+            //data = $.trim(data);            
         }
 
-        function onError(data, status) {
+        function onLoginError(data, Status, err) {
+            ApplicationShowError(err);
             ApplicationShowError('Login failed', 'Please try again.');
         }
     </script>
@@ -60,7 +54,7 @@
     <div id="#mainpage" data-role="page">
 	    <div data-role="header">
 		    <h1>myCISI Portal</h1>
-        </div><!-- /header -->
+      </div><!-- /header -->
 
 	    <div data-role="content">
             <h3>Your personalized travel portal</h3>
