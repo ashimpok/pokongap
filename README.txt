@@ -1,3 +1,6 @@
+Ashim Pokharel
+ashimpok@gmail.com
+
 My experiment with PhoneGap/JQuery Mobile
 Technologies interested
   MVC implementation in Javascript
