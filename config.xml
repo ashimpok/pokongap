@@ -25,4 +25,13 @@
 	<preference name="webviewbounce" value="false"/>
 	
 	<prerendered-icon value="true"/>
+	
+	<!-- the default attribute can also be used -->
+	<icon src="icons/icon.png" default="true" />
+	
+	<!-- iOS requires specific dimensions for different devices; classic iPhone
+  	screens, Retina displays, and iPad screens -->
+	<gap:splash src="icons/splash.png"/>
+	<gap:splash src="icons/splash_retina.png" width="640" height="960"/>
+
 </widget>
