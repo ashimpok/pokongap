@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.itechcg.pokongap"
+	version 	= "0.0.1">
+
+	<name>pokongap-experiment with phonegap</name>
+
+	<description>
+		This is my experiment with phonegap,jquery mobile	
+	</description>
+
+	<author href="http://alunny.github.com"
+		email="andrew.lunny@nitobi.com">
+		Andrew Lunny
+	</author>
+
+	<icon src="icon.png" gap:role="default" />
+
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
+	<preference name="orientation" value="portrait" />
+	<preference name="phonegap-version" value="1.5.0"/>
+	<preference name="webviewbounce" value="false"/>
+	
+	<prerendered-icon value="true"/>
+	
+	<!-- the default attribute can also be used -->
+	<icon src="icons/icon.png" default="true" />
+	
+	<!-- iOS requires specific dimensions for different devices; classic iPhone
+  	screens, Retina displays, and iPad screens -->
+	<gap:splash src="icons/splash.png"/>
+	<gap:splash src="icons/splash_retina.png" width="640" height="960"/>
+
+</widget>
