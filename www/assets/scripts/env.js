@@ -6,7 +6,7 @@
 
 var Environment = {
     JsonHandler: "http://localhost:51045/WebSite1/MobileInterface.ashx",
-    InitName: "ready", //"mobileinit"
+    InitName: "pageinit", //"pageinit" or "ready"
     
     PostRequest: function (jsonObject, onSuccess, onError) {
         console.log(JSON.stringify(jsonObject));

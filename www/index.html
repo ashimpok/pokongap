@@ -5,8 +5,9 @@
     <title>myCISI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	 <link rel="stylesheet" href="assets/mycisi-theme.min.css" type="text/css" />
+	 <link rel="stylesheet" href="assets/styles/mycisi-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/styles/jquery.mobile/jquery.mobile.structure.min.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/styles/jquery.mobile/jquery.mobile.min.css" type="text/css"/>
     <link href="assets/styles/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
     
@@ -18,11 +19,10 @@
     <script src="assets/scripts/env.js" type="text/javascript"></script>
         
     <script type="text/javascript">
-        $(document).bind(Environment.InitName, function () {
+        $(document).live(Environment.InitName, function () {
             Environment.PageSetup();
             
-            $("#btnLogin").click(function () {
-                                            
+            $("#btnLogin").click(function () {                
                 var loginRequest = new MobileLoginRequest();
                 loginRequest.UserName = $("#email").val();
                 loginRequest.Password = $("#password").val();
@@ -71,24 +71,21 @@
     <!-- Login page-->
     <div id="login" data-role="page" data-add-back-btn="true">
          <div data-role="header">
-		    <h1>myCISI Login</h1>            
+		    <h1>Login</h1>            
         </div><!-- /header -->
 
         <div data-role="content">
             <div class="ui-body ui-body-c">
             <form id="frmLogin" action="">
-                <div data-role="fieldcontain">
 	                <label for="email">
                         <em>* </em> Email:</label>
-	                <input type="text" name="email" id="email" value="" class="required email"/>
-                </div>
+	                <input type="email" name="email" id="email" value="" class="required email"/>
+                
 
-                <div data-role="fieldcontain">
-	                <label for="password">
+                   <label for="password">
                         <em>* </em>Password:</label>
 	                <input type="password" name="password" id="password" value="" class="required"/>
-                </div>
-
+                
                 <div>
                     <input id="btnLogin" type="submit" value="Login"/>
                 </div>
@@ -116,23 +113,17 @@
         <div data-role="content">
             <div class="ui-body ui-body-c">
             <form id="frmForgetReset">
-                <div data-role="fieldcontain">
-	                <label for="First name">
+                   <label for="First name">
                         <em>* </em> First name:</label>
 	                <input type="text" name="firstname" id="firstname" value="" class="required"/>
-                </div>
-
-                <div data-role="fieldcontain">
-	                <label for="username">
+                
+                   <label for="username">
                         <em>* </em> Last name:</label>
 	                <input type="text" name="lastname" id="lastname" value="" class="required"/>
-                </div>
 
-                <div data-role="fieldcontain">
 	                <label for="birthdate">
                         <em>* </em>Birth date:</label>
                     <input name="birthdate" id="birthday" value="" class="required date-birth" />
-                </div>
 
                 <div>
                     <button class="btnForgetReset" type="submit">Register</button>

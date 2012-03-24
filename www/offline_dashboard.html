@@ -18,8 +18,8 @@
     <script src="assets/scripts/env.js" type="text/javascript"></script>
     
     <script type="text/javascript">      
-        $(document).bind(Environment.InitName, function () {
-            Environment.PageSetup();
+        $(document).live(Environment.InitName, function () {
+           Environment.PageSetup();
            
            if(Environment.HasOfflineContent()){
               console.log('inside has off line content if')
@@ -30,13 +30,13 @@
               $('#hasNoOfflineContent').show();
               $('#hasOfflineContent').hide();
             }
-        });
-    </script>
+	       });
+	    </script>
 </head>
 <body>
     <!-- offline_dashboard -->
     <div id="#offline_dashboard" data-role="page" data-add-back-btn="true">
-	    <div data-role="header">
+    	 <div data-role="header">
 		    <h1>Offline Content</h1>
         </div><!-- /header -->
 
