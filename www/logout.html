@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Home</title>
+    <title>myCISI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="assets/styles/jquery.mobile/jquery.mobile.structure.min.css" type="text/css"/>
@@ -19,7 +19,7 @@
 </head>
 <body>
     <!-- offline_dashboard -->
-    <div id="#home" data-role="page">
+    <div id="#logout" data-role="page">
     	  <script type="text/javascript">      
         $(document).live(Environment.InitName, function () {
            Environment.PageSetup();
@@ -27,25 +27,15 @@
 	     </script>
 	    
     	 <div data-role="header" data-position="inline">
-		    <h1>Home</h1>
-		    <a href="logout.html" data-icon="check" class="ui-btn-right">Logout</a>
+		    <h1>myCISI</h1>
+		    <a href="index.html" data-icon="check" class="ui-btn-right">Continue</a>
         </div><!-- /header -->
 
 	    <div data-role="content">
-       
+       	<p>
+       		You have successfully logged out.
+       	</p>
 	    </div><!-- /content -->
-	    
-        <div data-role="footer" data-position="fixed">
-		    <div data-role="navbar" data-iconpos="top">
-		        <ul>
-			        <li><a data-icon="search" href="#home">Documents</a></li>
-			        <li><a data-icon="home" href="#home">Providers</a>
-			        <li><a data-icon="home" href="#home">Emergency</a></li>
-			        <li><a data-icon="home" href="#home">Destination</a></li>
-		        </ul>
-	        </div><!-- /navbar -->
-        </div><!-- /footer -->
-
     </div><!-- /offline_dashboard -->
 </body>
 </html>

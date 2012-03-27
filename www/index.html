@@ -34,8 +34,9 @@
             //data = $.trim(data);            
         }
 
-        function onLoginError(data, Status, err) {            
-            Environment.ShowError('Login failed', 'Please try again.');
+        function onLoginError(data, Status, err) {
+        	Environment.ChangePage("home.html")            
+        	//Environment.ShowError('Login failed', 'Please try again.');
         }
     </script>
 </head>
@@ -66,9 +67,9 @@
 		
         <div data-role="content">
             <div class="ui-body">
-            <form id="frmLogin" action="" method="get">
-	                <input type="email" name="email" id="email" value="" class="required email" placeholder="Email"/>
-	                <input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>                
+            <form id="frmLogin" action="home.html" method="get">
+	         		<input type="email" name="email" id="email" value="" class="required email" placeholder="Email"/>
+	            	<input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>                
                 <div>
                     <input id="btnLogin" type="submit" value="Login"/>
                 </div>
@@ -126,7 +127,7 @@
         </div><!-- /header -->
 
 	    <div data-role="content">
-       	<ul data-role="listview" data-inset="true" data-divider-theme="b">
+       	<ul data-role="listview" data-inset="true" data-divider-theme="a">
 				<li data-role="list-divider">Email CISI</li>
 				<li>
 					<a href="mailto:enrollments@culturalinsurance.com">enrollments@culturalinsurance.com</a></li> 

@@ -46,5 +46,9 @@ var Environment = {
         
     HasOfflineContent: function(){
       return true;
+    },
+    
+    ChangePage : function(newPage){
+		$.mobile.changePage(newPage);   
     }
 }
