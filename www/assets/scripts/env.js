@@ -5,7 +5,8 @@
 //used throughout the site
 
 var Environment = {
-    JsonHandler: "http://localhost:51045/WebSite1/MobileInterface.ashx",
+    JsonHandler: "http://127.0.0.1:8080/MobileHandler.ashx", 
+    				//"http://localhost:51045/WebSite1/MobileInterface.ashx",
     InitName: "pageinit", //"pageinit" or "ready"
     
     PostRequest: function (jsonObject, onSuccessCall, onErrorCall) {
