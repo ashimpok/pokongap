@@ -45,7 +45,6 @@ var Environment = {
     },
         
     HasOfflineContent: function(){
-      alert('test');
       return true;
     }
 }
