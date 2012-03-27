@@ -4,17 +4,12 @@
 <head>
     <title>myCISI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	 <link rel="stylesheet" href="assets/styles/mycisi-theme.min.css" type="text/css" />
-    <link rel="stylesheet" href="assets/styles/jquery.mobile/jquery.mobile.structure.min.css" type="text/css"/>
-    <link rel="stylesheet" href="assets/styles/jquery.mobile/jquery.mobile.min.css" type="text/css"/>
-    <link href="assets/styles/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
-    
-    <script src="assets/scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/scripts/jquery-ui.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="assets/styles/jquery.mobile/mycisi-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/styles/jquery.mobile/jquery.mobile.structure.min.css" type="text/css"/>    
+    <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />    
+	
+    <script src="assets/scripts/jquery.min.js" type="text/javascript"></script>    
     <script src="assets/scripts/jquery.mobile.min.js" type="text/javascript"></script>
-    <script src="assets/scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="assets/scripts/application.js" type="text/javascript"></script>
     <script src="assets/scripts/env.js" type="text/javascript"></script>
         
@@ -32,12 +27,6 @@
             });
         });
 
-        //$('#frmLogin').validate({
-        //    submitHandler: function (form) {
-        //        alert("Call login action");
-        //    }
-        //});
-
         function onLoginSuccess(data, Status) {
             Environment.ShowMessage('Logged on', 'Thank you');
             //data = $.trim(data);            
@@ -51,19 +40,19 @@
 <body>
     <!-- Mainpage -->
     <div id="#mainpage" data-role="page">
-	    <div data-role="header">
-		    <h1>myCISI Portal</h1>
-      </div><!-- /header -->
-
 	    <div data-role="content">
             <h3>Your personalized travel portal</h3>
             
-            <ul data-role="listview" data-inset="true">
+            <ul data-role="listview" data-inset="true" data-divider-theme="a">
                 <li data-role="list-divider">Access your acocunt</li>
 	            <li><a href="#login">Login</a></li>
 
                 <li data-role="list-divider">Offline content</li>
                 <li><a href="offline_dashboard.html">View offline content</a></li>
+				
+				<li data-role="list-divider">Help</li>
+                <li><a href="#have_a_question">Have a question?</a></li>
+				<li><a href="#have-a-question">FAQ</a></li>
             </ul>
 	    </div><!-- /content -->
     </div><!-- /Mainpage -->
@@ -71,43 +60,36 @@
     <!-- Login page-->
     <div id="login" data-role="page" data-add-back-btn="true">
          <div data-role="header">
-		    <h1>Login</h1>            
+		    <h1>Login</h1>
         </div><!-- /header -->
-
+		
         <div data-role="content">
             <div class="ui-body">
             <form id="frmLogin" action="">
-	                <label for="email">
-                        <em>* </em> Email:</label>
-	                <input type="email" name="email" id="email" value="" class="required email"/>
-                
-
-                   <label for="password">
-                        <em>* </em>Password:</label>
-	                <input type="password" name="password" id="password" value="" class="required"/>
-                
+	                <input type="email" name="email" id="email" value="" class="required email" placeholder="Email"/>
+	                <input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>                
                 <div>
                     <input id="btnLogin" type="submit" value="Login"/>
                 </div>
             </form>
             </div>
-            
-            <div class="ui-body ui-body-c">
-					As a registered user gain 24/7 access to
-					<ul>					
+			
+			<div class="ui-body ui-body-b mini-text">
+				<h3>Gain 24/7 access to</h3>
+				<ul>
 					<li>View, print and email: ID Card, Consulate letter, Plan of insurance brochure and Claim form</li>
 					<li>Access valuable travel related sites</li>
 					<li>Research country specific information</li>
-					<li>Personal security assistance website</li> 
-					</ul>           
-            </div>
+					<li>Access personal security assistance website</li>
+				</ul>
+			</div>
         </div>
-
-         <div data-role="footer" data-position="fixed">
+		
+        <div data-role="footer" data-position="fixed">
 		    <div data-role="navbar" data-iconpos="top">
 		        <ul>
 			        <li><a data-icon="home" href="#register" data-transition="flip">Register</a></li>
-			        <li><a data-icon="home" href="#register" data-transition="flip">Forgot password</a></li>			        
+			        <li><a data-icon="home" href="#register" data-transition="flip">Forgot password</a></li>	        
 		        </ul>
 	        </div><!-- /navbar -->
         </div><!-- /footer -->
@@ -123,26 +105,39 @@
 
         <div data-role="content">
             <div class="ui-body">
-            <form id="frmForgetReset">
-                   <label for="First name">
-                        <em>* </em> First name:</label>
-	                <input type="text" name="firstname" id="firstname" value="" class="required"/>
-                
-                   <label for="username">
-                        <em>* </em> Last name:</label>
-	                <input type="text" name="lastname" id="lastname" value="" class="required"/>
-
-	                <label for="birthdate">
-                        <em>* </em>Birth date:</label>
-                    <input name="birthdate" id="birthday" value="" class="required date-birth" />
-
-                <div>
-                    <button class="btnForgetReset" type="submit">Register</button>
-                </div>
-            </form>
+				<form id="frmForgetReset">                   
+					<input type="text" name="firstname" id="firstname" value="" class="required" placeholder="First name"/>
+					<input type="text" name="lastname" id="lastname" value="" class="required" placeholder="Last name"/>                        
+					<input name="birthdate" id="birthday" value="" class="required" placeholder="Birth date"/>
+					
+					<button class="btnForgetReset" type="submit">Register</button>
+					
+				</form>
             </div>
         </div>
     </div>
     <!-- /Forget/Reset page-->
+	
+	<!-- Have a question -->	 
+    <div id="#have_a_question" data-role="page" data-add-back-btn="true">
+    	 <div data-role="header">
+		    <h1>Have a question?</h1>		    
+        </div><!-- /header -->
+
+	    <div data-role="content">
+      
+          <div class="ui-body">
+				<p>Email CISI</p>
+				<p>enrollments@culturalinsurance.com</p>				
+				<p>Call toll-free</p>
+				<p>1-(800)-303-8120</p>
+          </div>  
+	    </div><!-- /content -->
+	    
+        <div data-role="footer" data-position="fixed">
+            <h1></h1>
+        </div><!-- /footer -->
+
+    </div><!-- Have a question -->
 </body>
 </html>
