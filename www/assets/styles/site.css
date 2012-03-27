@@ -1,10 +1,6 @@
+.no-init-display{
+	display: none;
+}
 .mini-text{
 	font-size:0.8em;	
-}
-.app-banner{
-	background-image: url('images/app-banner.png');
-	background-repeat: no-repeat;
-	background-position: center center;
-	width: 350px;
-	height: 300px;
 }
