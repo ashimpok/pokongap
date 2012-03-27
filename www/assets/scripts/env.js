@@ -8,7 +8,7 @@ var Environment = {
     JsonHandler: "http://localhost:51045/WebSite1/MobileInterface.ashx",
     InitName: "pageinit", //"pageinit" or "ready"
     
-    PostRequest: function (jsonObject, onSuccess, onError) {
+    PostRequest: function (jsonObject, onSuccessCall, onErrorCall) {
         console.log(JSON.stringify(jsonObject));
         
         $.ajax({
@@ -19,12 +19,12 @@ var Environment = {
           data: { jsonData: JSON.stringify(jsonObject) },
           contentType: "application/json; charset=utf-8",          
           success: function(data, Status){                   
-            if(typeof(onSuccess) === "function")
-              onSuccess(data, Status);
+            if(typeof(onSuccessCall) === "function")
+              onSuccessCall(data, Status);
           },
           error: function(data, Status, err){
-            if(typeof(onError) === "function")
-              onError(data, Status, err);
+            if(typeof(onErrorCall) === "function")
+              onErrorCall(data, Status, err);
           }
         });      
     },

@@ -14,41 +14,21 @@
    <script src="assets/scripts/env.js" type="text/javascript"></script>
         
     <script src="assets/scripts/jquery.mobile.min.js" type="text/javascript"></script>
-        
     <script type="text/javascript">
         $(document).live(Environment.InitName, function () {
             Environment.PageSetup();
-            
-            $("#btnLogin").click(function () {                
-                var loginRequest = new MobileLoginRequest();
-                loginRequest.UserName = $("#email").val();
-                loginRequest.Password = $("#password").val();
-                
-                Environment.PostRequest(loginRequest, onLoginSuccess, onLoginError);
-                return false;
-            });
-        });
-
-        function onLoginSuccess(data, Status) {
-            Environment.ShowMessage('Logged on', 'Thank you');
-            //data = $.trim(data);            
-        }
-
-        function onLoginError(data, Status, err) {
-        	Environment.ChangePage("home.html")            
-        	//Environment.ShowError('Login failed', 'Please try again.');
-        }
-    </script>
+    	</script>
 </head>
 <body>
     <!-- Mainpage -->
-    <div id="#mainpage" data-role="page">
+    <div id="mainpage" data-role="page">
 	    <div data-role="content">
             <h3>myCISI</h3>
             
             <ul data-role="listview" data-inset="true" data-divider-theme="a">
                 <li data-role="list-divider">Access your acocunt</li>
 	            <li><a href="#login">Login</a></li>
+	            <li><a href="#register">Register</a></li>
 
                 <li data-role="list-divider">Offline content</li>
                 <li><a href="offline_dashboard.html">View offline content</a></li>
@@ -61,17 +41,41 @@
 
     <!-- Login page-->
     <div id="login" data-role="page" data-add-back-btn="true">
+    	<script type="text/javascript">
+        $(document).live(Environment.InitName, function () {
+            $("#btnLogin").click(function () {
+            		var loginRequest = new MobileLoginRequest();
+                loginRequest.UserName = $("#email").val();
+                loginRequest.Password = $("#password").val();
+                
+                Environment.PostRequest(loginRequest, onLoginSuccessCall, onLoginErrorCall);
+                return false;
+            });
+        });
+
+        function onLoginSuccessCall(data, Status) {
+        	//TODO: Check to see if data has login successful or not
+			Environment.ChangePage("home.html");        	            
+          //data = $.trim(data);            
+        }
+
+        function onLoginErrorCall(data, Status, err) {
+        	Environment.ShowError('Login failed', 'Please try again.');
+        }
+    	</script>
+    	
          <div data-role="header">
 		    <h1>Login</h1>
+		    <a href="#register" class="ui-btn-right">Forgot Password</a>
         </div><!-- /header -->
 		
         <div data-role="content">
             <div class="ui-body">
-            <form id="frmLogin" action="home.html" method="get">
+            <form id="frmLogin">
 	         		<input type="email" name="email" id="email" value="" class="required email" placeholder="Email"/>
 	            	<input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>                
                 <div>
-                    <input id="btnLogin" type="submit" value="Login"/>
+                    <input id="btnLogin" name="btnLogin" type="submit" value="Login"/>
                 </div>
             </form>
             </div>
@@ -86,39 +90,50 @@
 				</ul>
 			</div>
         </div>
-		
-        <div data-role="footer" data-position="fixed">
-		    <div data-role="navbar" data-iconpos="top">
-		        <ul>
-			        <li><a data-icon="home" href="#register" data-transition="flip">Register</a></li>
-			        <li><a data-icon="home" href="#register" data-transition="flip">Forgot password</a></li>	        
-		        </ul>
-	        </div><!-- /navbar -->
-        </div><!-- /footer -->
     </div>
     <!-- /Login page-->
 
     <!-- Forget/Reset page-->
-    <div id="register" data-role="page">
+    <div id="register" data-role="page" data-add-back-btn="true">
          <div data-role="header">
 		    <h1>Register</h1>
-		     <a href="index.html" class="ui-btn-left" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
         </div><!-- /header -->
 
         <div data-role="content">
             <div class="ui-body">
-				<form id="frmForgetReset">                   
+				<form id="frmForgetReset" method="get" action="">                   
 					<input type="text" name="firstname" id="firstname" value="" class="required" placeholder="First name"/>
 					<input type="text" name="lastname" id="lastname" value="" class="required" placeholder="Last name"/>                        
 					<input name="birthdate" id="birthday" value="" class="required" placeholder="Birth date"/>
 					
-					<button class="btnForgetReset" type="submit">Register</button>
+					<button id="btnForgetReset" name="btnForgetReset" type="submit">Proceed</button>
 					
 				</form>
             </div>
         </div>
     </div>
     <!-- /Forget/Reset page-->
+    
+    <!-- provide email/passwords-->
+    <div id="emailPassword" data-role="page">
+         <div data-role="header" data-add-back-btn="true">
+		    <h1>Set your account</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <div class="ui-body">
+				<form id="frmEmailPassword">                   
+					<input type="email" name="email" id="email" value="" class="required" placeholder="Email"/>
+					<input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>
+					<input type="password" name="repassword" id="repassword" value="" class="required" placeholder="Reenter Password"/>					
+					
+					<button class="btnEmailPassword" type="submit">Set account</button>
+					
+				</form>
+            </div>
+        </div>
+    </div>
+    <!-- /provide email/passwords-->
 	
 	<!-- Have a question -->	 
     <div id="have_a_question" data-role="page" data-add-back-btn="true">
