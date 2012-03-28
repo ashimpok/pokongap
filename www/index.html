@@ -44,7 +44,7 @@
     	<script type="text/javascript">
         $(document).live(Environment.InitName, function () {
             $("#btnLogin").click(function () {
-            		var loginRequest = new MobileLoginRequest();
+            		var loginRequest = new LoginRequest();
                 loginRequest.UserName = $("#email").val();
                 loginRequest.Password = $("#password").val();
                 
@@ -54,13 +54,12 @@
         });
 
         function onLoginSuccessCall(data, Status) {
-        	//TODO: Check to see if data has login successful or not
-        	alert(data);
-			Environment.ChangePage("home.html");        	            
+        	//TODO: Check to see if data has login successful or not        	 
+			     Environment.ChangePage("home.html");        	            
           //data = $.trim(data);            
         }
 
-        function onLoginErrorCall(data, Status, err) {
+        function onLoginErrorCall(data, Status, err) {          
         	Environment.ShowError('Login failed', 'Please try again.');
         }
     	</script>
