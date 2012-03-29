@@ -17,6 +17,7 @@
     <script type="text/javascript">
         $(document).live(Environment.InitName, function () {
             Environment.PageSetup();
+        });
     	</script>
 </head>
 <body>
@@ -41,20 +42,18 @@
 
     <!-- Login page-->
     <div id="login" data-role="page" data-add-back-btn="true">
-    	<script type="text/javascript">
-        $(document).live(Environment.InitName, function () {                    
-            $("#btnLogin").click(function () {
-                $("#btnLogin").unbind('click');
+        <script type="text/javascript">
+        $(document).live(Environment.InitName, function () {
+            $("#btnLogin").click(function () {                
             		var loginRequest = new LoginRequest();
                 loginRequest.UserName = $("#email").val();
                 loginRequest.Password = $("#password").val();
                 
                 Environment.PostRequest(loginRequest, onLoginSuccessCall, onLoginErrorCall);
-                return false;
+                return false;                
             });
-        });
-
-        function onLoginSuccessCall(data, Status) {
+            
+             function onLoginSuccessCall(data, Status) {
         	//TODO: Check to see if data has login successful or not        	 
 			     Environment.ChangePage("home.html");
           //data = $.trim(data);
@@ -64,8 +63,8 @@
           Environment.ChangePage("home.html");          
         	//Environment.ShowError('Login failed', 'Please try again.');
         }
-    	</script>
-    	
+        });
+    	</script>      
          <div data-role="header">
 		    <h1>Login</h1>
 		    <a href="#register" class="ui-btn-right">Forgot Password</a>
@@ -73,7 +72,7 @@
 		
         <div data-role="content">
             <div class="ui-body">
-            <form id="frmLogin" method="get">
+            <form id="frmLogin" method="post">
 	         		<input type="text" name="email" id="email" value="" class="required email" placeholder="Email"/>
 	            	<input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>                
                 <div>
