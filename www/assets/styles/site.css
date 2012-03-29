@@ -4,3 +4,6 @@
 .mini-text{
 	font-size:0.8em;	
 }
+.miniTextPersistentNav .ui-btn-text{
+  font-size:8px;
+}
