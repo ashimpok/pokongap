@@ -42,8 +42,9 @@
     <!-- Login page-->
     <div id="login" data-role="page" data-add-back-btn="true">
     	<script type="text/javascript">
-        $(document).live(Environment.InitName, function () {
+        $(document).live(Environment.InitName, function () {                    
             $("#btnLogin").click(function () {
+                $("#btnLogin").unbind('click');
             		var loginRequest = new LoginRequest();
                 loginRequest.UserName = $("#email").val();
                 loginRequest.Password = $("#password").val();
@@ -55,12 +56,13 @@
 
         function onLoginSuccessCall(data, Status) {
         	//TODO: Check to see if data has login successful or not        	 
-			     Environment.ChangePage("home.html");        	            
-          //data = $.trim(data);            
+			     Environment.ChangePage("home.html");
+          //data = $.trim(data);
         }
 
-        function onLoginErrorCall(data, Status, err) {          
-        	Environment.ShowError('Login failed', 'Please try again.');
+        function onLoginErrorCall(data, Status, err) {
+          Environment.ChangePage("home.html");          
+        	//Environment.ShowError('Login failed', 'Please try again.');
         }
     	</script>
     	
@@ -71,8 +73,8 @@
 		
         <div data-role="content">
             <div class="ui-body">
-            <form id="frmLogin">
-	         		<input type="email" name="email" id="email" value="" class="required email" placeholder="Email"/>
+            <form id="frmLogin" method="get">
+	         		<input type="text" name="email" id="email" value="" class="required email" placeholder="Email"/>
 	            	<input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>                
                 <div>
                     <input id="btnLogin" name="btnLogin" type="submit" value="Login"/>
@@ -125,7 +127,7 @@
 				<form id="frmEmailPassword">                   
 					<input type="email" name="email" id="email" value="" class="required" placeholder="Email"/>
 					<input type="password" name="password" id="password" value="" class="required" placeholder="Password"/>
-					<input type="password" name="repassword" id="repassword" value="" class="required" placeholder="Reenter Password"/>					
+					<input type="password" name="confirmpassword" id="confirmpassword" value="" class="required" placeholder="Confirm password"/>					
 					
 					<button class="btnEmailPassword" type="submit">Set account</button>
 					
