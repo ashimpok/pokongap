@@ -68,7 +68,7 @@
 			</div>
         </div>
          <script type="text/javascript">
-        $(document).bind("pagecreate", function () {
+        $('#login').bind("pagecreate", function () {
             $("#btnLogin").click(function () {                
             	var loginRequest = new LoginRequest();
                 loginRequest.UserName = $("#email").val();
@@ -79,15 +79,18 @@
             });
         });
             
-             function onLoginSuccessCall(data, Status) {
-        	//TODO: Check to see if data has login successful or not        	 
-			     Environment.ChangePage("home.html");
-          //data = $.trim(data);
+        function onLoginSuccessCall(data, Status) {
+        	//TODO: Check to see if data has login successful or not
+			if(data.HasError){
+				Environment.ShowResponseError('Login failed', data);
+			}else{
+				Environment.ChangePage("home.html");
+			}
         }
 
         function onLoginErrorCall(data, Status, err) {
-          Environment.ChangePage("home.html");          
-        	//Environment.ShowError('Login failed', 'Please try again.');
+          //Environment.ChangePage("home.html");          
+        	Environment.ShowError('Login failed', 'Please try again.');
         }        
     	</script>
     </div>

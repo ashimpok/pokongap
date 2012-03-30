@@ -5,7 +5,7 @@
 //used throughout the site
 
 var Environment = {
-    JsonHandler: "http://localhost:51045/WebSite1/MobileInterface.ashx",
+    JsonHandler: "http://127.0.0.1:8080/MobileHandler.ashx",
             //mac "http://127.0.0.1:8080/MobileHandler.ashx"
     				//win "http://localhost:51045/WebSite1/MobileInterface.ashx"
     InitName: "pageinit", //"pageinit" or "ready"
@@ -36,6 +36,21 @@ var Environment = {
     PageSetup: function () {
         $.support.cors = true;
         $.mobile.allowCrossDomainPages = true;
+    },
+    
+    ShowResponseError: function(title, responseObj) {
+
+    	var errorMessage = "Unspecified error occured.";
+    	
+		if(responseObj != undefined && 
+			responseObj.ErrorMessages != undefined &&
+			responseObj.ErrorMessages.length > 0) {
+				
+				///TODO: This currently only show 1st error message
+				errorMessage = responseObj.ErrorMessages[0];	
+		}
+		
+		alert(title + '\n' + errorMessage);
     },
     
     ShowError: function(title, message) {
