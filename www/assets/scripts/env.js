@@ -5,7 +5,7 @@
 //used throughout the site
 
 var Environment = {
-    JsonHandler: "http://localhost:51045/WebSite1/MobileInterface.ashx",
+    JsonHandler: "http://192.168.1.120/Mobile/MobileInterface.ashx",
             //mac "http://127.0.0.1:8080/MobileHandler.ashx"
     			//win "http://localhost:51045/WebSite1/MobileInterface.ashx"
     			//win deployed http://192.168.1.120/Mobile/MobileInterface.ashx
