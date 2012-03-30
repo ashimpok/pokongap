@@ -79,16 +79,16 @@
         });
             
         function onLoginSuccessCall(data, Status) {        	
-			if(data.HasError){
-				Environment.ShowResponseError('Login failed', data);
-			}else{
+			//if(data.HasError){
+			//	Environment.ShowResponseError('Login failed', data);
+			//}else{
 				Environment.ChangePage("home.html");
-			}
+			//}
         }
 
         function onLoginErrorCall(data, Status, err) {
-          //Environment.ChangePage("home.html");          
-        	Environment.ShowError('Login failed', 'Please try again.');
+          Environment.ChangePage("home.html");          
+        	//Environment.ShowError('Login failed', 'Please try again.');
         }        
     	</script>
     </div>
