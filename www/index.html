@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>myCISI</title>
@@ -67,6 +66,7 @@
 				</ul>
 			</div>
         </div>
+<<<<<<< HEAD
         <script type="text/javascript">
 	        $('#login').bind("pagecreate", function () {
 	            $("#btnLogin").click(function () {                
@@ -90,6 +90,32 @@
 	        function onLoginErrorCall(data, Status, err) {
 	        	Environment.ShowError('Login failed', 'Please try again.');
 	        }        
+=======
+         <script type="text/javascript">
+        $('#login').bind("pagecreate", function () {
+            $("#btnLogin").click(function () {                
+            	var loginRequest = new LoginRequest();
+                loginRequest.UserName = $("#email").val();
+                loginRequest.Password = $("#password").val();
+                
+                Environment.PostRequest(loginRequest, onLoginSuccessCall, onLoginErrorCall);
+                return false;                
+            });
+        });
+            
+        function onLoginSuccessCall(data, Status) {        	
+			//if(data.HasError){
+			//	Environment.ShowResponseError('Login failed', data);
+			//}else{
+				Environment.ChangePage("home.html");
+			//}
+        }
+
+        function onLoginErrorCall(data, Status, err) {
+          Environment.ChangePage("home.html");          
+        	//Environment.ShowError('Login failed', 'Please try again.');
+        }        
+>>>>>>> ed778dfdfd1c092a6a99c2af8dc9ac15b1d2faf7
     	</script>
     </div>
     <!-- /Login page-->
