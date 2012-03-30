@@ -78,8 +78,7 @@
             });
         });
             
-        function onLoginSuccessCall(data, Status) {
-        	//TODO: Check to see if data has login successful or not
+        function onLoginSuccessCall(data, Status) {        	
 			if(data.HasError){
 				Environment.ShowResponseError('Login failed', data);
 			}else{
